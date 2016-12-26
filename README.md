@@ -1,9 +1,5 @@
 # SocialTradeAutoClick
 
-This software (ok ok, its a script) tries to do the automation of the social trade clicks. This is the simplest solution for this kind of problem looking at that most of the people in this work are from non-software background and cannot use a more sophisticated solutions. This script works on the client side and keeps on clicking until the job is finished or the server goes down. The limitation is that once the site is down, the script is not intellegent enough to know this and keeps on trying for clicks.
-More sophisticated solution has advantages that they can wake up once the site becomes available but they would closed solutions as well as for a non-technical person, tougher to use. Also the server can guess that a bot is working on the other side which can cause inconvience for the user.
-So until this solution is working well, enjoy!!!
-
 ## -- How to Use the script --
 
 - Open the browser and login to social trade.
