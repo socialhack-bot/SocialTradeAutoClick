@@ -1,3 +1,4 @@
+// SocialTrade -> frenzzup.com -> ??
 var elementList;
 var index = 0;
 var attempt = 0;
