@@ -7,12 +7,12 @@ var tries = 0;
 
 function myTimer() {
 	var element = elementList[index];
-	if($(element).hasClass("fade")) {
+	if($(element).hasClass("like_button")) {
 		while(true)
 		{
 			index++;
 			element = elementList[index];
-			if($(element).hasClass("handIcon"))
+			if($(element).hasClass("btn-new"))
 			{
 				console.log("Found button to click at index: " + (index + 1));
 				break;
@@ -21,7 +21,7 @@ function myTimer() {
 		return;
 	}
 	
-	if($(element).hasClass("handIcon")) 
+	if($(element).hasClass("btn-new")) 
 	{
 		$(element).click();
 		console.log("Button Index: " + (index + 1) + ". Link opened: " + $(element).attr("link"));
@@ -53,15 +53,6 @@ function myTimer() {
 	{
 		tries++;
 		console.log("Waiting on click index: " + (index + 1) + ". Tries: " + tries);
-		// referesh page on 3ed attempt
-/*		if((attempt % 9) == 0)
-		{
-			attempt = 0;
-			flag = false;
-			// refresh
-			window.location.reload();
-		}
-*/
 	}
 }
 
