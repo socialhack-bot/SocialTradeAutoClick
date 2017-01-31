@@ -5,6 +5,7 @@ var attempt = 0;
 var flag = false;
 var myVar;
 var tries = 0;
+var alreadyClicked = 0;
 
 function myTimer() {
 	var element = elementList[index];
@@ -15,7 +16,7 @@ function myTimer() {
 			element = elementList[index];
 			if($(element).hasClass("btn-new"))
 			{
-				console.log("Found button to click at index: " + (index + 1));
+				console.log("Found button to click at index: " + (alreadyClicked));
 				break;
 			}
 		}
@@ -25,9 +26,10 @@ function myTimer() {
 	if($(element).hasClass("btn-new")) 
 	{
 		$(element).click();
-		console.log("Button Index: " + (index + 1) + ". Link opened: " + $(element).attr("link"));
+		console.log("Button Index: " + (alreadyClicked) + ". Link opened: " + $(element).attr("link"));
 		flag = true;
 		index++;
+		alreadyClicked++;
 		if(index >= elementList.length)
 		{
 			clearInterval(myVar);
@@ -53,7 +55,14 @@ function myTimer() {
 	if((attempt % 6) == 0)
 	{
 		tries++;
-		console.log("Waiting on click index: " + (index + 1) + ". Tries: " + tries);
+		console.log("Waiting on click index: " + (alreadyClicked) + ". Tries: " + tries);
+		if(tries == 2)
+		{
+			// try index again
+			console.log("Trying to click index " + n + " again!");
+			index--;
+			alreadyClicked--;
+		}
 	}
 }
 
@@ -63,9 +72,12 @@ function myFunction() {
 	var n = d.getDate() + "/" + d.getMonth() + "/" + d.getFullYear() + " " + d.getHours() + ":" + d.getMinutes() + ":" + d.getSeconds();
 	console.log("Work started at " + n);
 	
+	clickedList = $("span.w3-btn");
+	alreadyClicked = clickedList.length;
+	
 	// find each <span>
 	elementList = $("[id^='hand_']");
-	console.log("element found: " + elementList.length);
-	myVar = setInterval(myTimer, 5000);
+	console.log("element found: " + (elementList.length + alreadyClicked));
+	myVar = setInterval(myTimer, 2000);
 }
 myFunction();
